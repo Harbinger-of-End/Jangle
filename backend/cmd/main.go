@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"jangle/backend/auth"
 	"jangle/backend/pkg"
@@ -22,6 +23,12 @@ func main() {
 		),
 	)
 	pkg.CheckError(err)
+	ctx, cancel := context.WithCancel(context.TODO())
+	defer cancel()
+
+	postgresErr, mongoErr := pkg.Db().InitializeDB(ctx)
+	pkg.CheckError(postgresErr)
+	pkg.CheckError(mongoErr)
 
 	port := os.Getenv("PORT")
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%v", port))
@@ -42,7 +49,7 @@ func main() {
 	defer func() {
 		grpcServer.GracefulStop()
 		lis.Close()
-		defer sentry.Flush(2 * time.Second)
+		sentry.Flush(2 * time.Second)
 	}()
 
 	grpcServer.Serve(lis)
