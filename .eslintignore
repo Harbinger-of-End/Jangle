@@ -1,0 +1,6 @@
+node_modules/
+dist/
+web/.next/
+web/public/sw.js
+web/public/workbox*
+web/next-env.d.ts
