@@ -30,7 +30,7 @@
     },
     "scripts": {
         "start": "next start web",
-        "dev": "next start web",
+        "dev": "next dev web",
         "build": "next build web",
         "lint": "next lint web",
         "fmt": "prettier --write **/*.{js,js,ts,tsx,json,css,scss}",
