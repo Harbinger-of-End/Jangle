@@ -1,0 +1,9 @@
+{
+    "name": "jangle",
+    "version": "0.1.0",
+    "description": "Web frontend for Jangle",
+    "main": "index.js",
+    "repository": "https://github.com/Harbinger-of-End/Jangle.git",
+    "author": "Sai Kumar <ksai44576@gmail.com>",
+    "license": "Apache-2.0"
+}
