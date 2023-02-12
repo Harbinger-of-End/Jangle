@@ -5,5 +5,26 @@
     "main": "index.js",
     "repository": "https://github.com/Harbinger-of-End/Jangle.git",
     "author": "Sai Kumar <ksai44576@gmail.com>",
-    "license": "Apache-2.0"
+    "license": "Apache-2.0",
+    "dependencies": {
+        "google-protobuf": "^3.21.2",
+        "grpc-web": "^1.4.2",
+        "next": "^13.1.6",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "devDependencies": {
+        "@types/node": "^18.13.0",
+        "@types/react": "^18.0.28",
+        "@types/react-dom": "^18.0.10",
+        "@typescript-eslint/eslint-plugin": "^5.51.0",
+        "@typescript-eslint/parser": "^5.51.0",
+        "eslint": "^8.34.0",
+        "eslint-config-prettier": "^8.6.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "prettier": "^2.8.4",
+        "protoc-gen-grpc-web": "^1.4.1",
+        "sass": "^1.58.0",
+        "typescript": "^4.9.5"
+    }
 }
