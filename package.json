@@ -7,6 +7,7 @@
     "author": "Sai Kumar <ksai44576@gmail.com>",
     "license": "Apache-2.0",
     "dependencies": {
+        "@sentry/nextjs": "^7.37.1",
         "google-protobuf": "^3.21.2",
         "grpc-web": "^1.4.2",
         "next": "^13.1.6",
