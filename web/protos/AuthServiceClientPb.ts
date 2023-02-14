@@ -10,120 +10,131 @@
 // 	protoc              v3.20.2
 // source: protos/auth.proto
 
-
 /* eslint-disable */
 // @ts-nocheck
-
 
 import * as grpcWeb from 'grpc-web';
 
 import * as protos_auth_pb from '../protos/auth_pb';
 
-
 export class AuthenticationClient {
-  client_: grpcWeb.AbstractClientBase;
-  hostname_: string;
-  credentials_: null | { [index: string]: string; };
-  options_: null | { [index: string]: any; };
+    client_: grpcWeb.AbstractClientBase;
+    hostname_: string;
+    credentials_: null | { [index: string]: string };
+    options_: null | { [index: string]: any };
 
-  constructor (hostname: string,
-               credentials?: null | { [index: string]: string; },
-               options?: null | { [index: string]: any; }) {
-    if (!options) options = {};
-    if (!credentials) credentials = {};
-    options['format'] = 'text';
+    constructor(
+        hostname: string,
+        credentials?: null | { [index: string]: string },
+        options?: null | { [index: string]: any }
+    ) {
+        if (!options) options = {};
+        if (!credentials) credentials = {};
+        options['format'] = 'text';
 
-    this.client_ = new grpcWeb.GrpcWebClientBase(options);
-    this.hostname_ = hostname.replace(/\/+$/, '');
-    this.credentials_ = credentials;
-    this.options_ = options;
-  }
-
-  methodDescriptorSignup = new grpcWeb.MethodDescriptor(
-    '/auth.Authentication/Signup',
-    grpcWeb.MethodType.UNARY,
-    protos_auth_pb.SignupRequest,
-    protos_auth_pb.SignupResponse,
-    (request: protos_auth_pb.SignupRequest) => {
-      return request.serializeBinary();
-    },
-    protos_auth_pb.SignupResponse.deserializeBinary
-  );
-
-  signup(
-    request: protos_auth_pb.SignupRequest,
-    metadata: grpcWeb.Metadata | null): Promise<protos_auth_pb.SignupResponse>;
-
-  signup(
-    request: protos_auth_pb.SignupRequest,
-    metadata: grpcWeb.Metadata | null,
-    callback: (err: grpcWeb.RpcError,
-               response: protos_auth_pb.SignupResponse) => void): grpcWeb.ClientReadableStream<protos_auth_pb.SignupResponse>;
-
-  signup(
-    request: protos_auth_pb.SignupRequest,
-    metadata: grpcWeb.Metadata | null,
-    callback?: (err: grpcWeb.RpcError,
-               response: protos_auth_pb.SignupResponse) => void) {
-    if (callback !== undefined) {
-      return this.client_.rpcCall(
-        this.hostname_ +
-          '/auth.Authentication/Signup',
-        request,
-        metadata || {},
-        this.methodDescriptorSignup,
-        callback);
+        this.client_ = new grpcWeb.GrpcWebClientBase(options);
+        this.hostname_ = hostname.replace(/\/+$/, '');
+        this.credentials_ = credentials;
+        this.options_ = options;
     }
-    return this.client_.unaryCall(
-    this.hostname_ +
-      '/auth.Authentication/Signup',
-    request,
-    metadata || {},
-    this.methodDescriptorSignup);
-  }
 
-  methodDescriptorSignin = new grpcWeb.MethodDescriptor(
-    '/auth.Authentication/Signin',
-    grpcWeb.MethodType.UNARY,
-    protos_auth_pb.SigninRequest,
-    protos_auth_pb.SigninResponse,
-    (request: protos_auth_pb.SigninRequest) => {
-      return request.serializeBinary();
-    },
-    protos_auth_pb.SigninResponse.deserializeBinary
-  );
+    methodDescriptorSignup = new grpcWeb.MethodDescriptor(
+        '/auth.Authentication/Signup',
+        grpcWeb.MethodType.UNARY,
+        protos_auth_pb.SignupRequest,
+        protos_auth_pb.SignupResponse,
+        (request: protos_auth_pb.SignupRequest) => {
+            return request.serializeBinary();
+        },
+        protos_auth_pb.SignupResponse.deserializeBinary
+    );
 
-  signin(
-    request: protos_auth_pb.SigninRequest,
-    metadata: grpcWeb.Metadata | null): Promise<protos_auth_pb.SigninResponse>;
+    signup(
+        request: protos_auth_pb.SignupRequest,
+        metadata: grpcWeb.Metadata | null
+    ): Promise<protos_auth_pb.SignupResponse>;
 
-  signin(
-    request: protos_auth_pb.SigninRequest,
-    metadata: grpcWeb.Metadata | null,
-    callback: (err: grpcWeb.RpcError,
-               response: protos_auth_pb.SigninResponse) => void): grpcWeb.ClientReadableStream<protos_auth_pb.SigninResponse>;
+    signup(
+        request: protos_auth_pb.SignupRequest,
+        metadata: grpcWeb.Metadata | null,
+        callback: (
+            err: grpcWeb.RpcError,
+            response: protos_auth_pb.SignupResponse
+        ) => void
+    ): grpcWeb.ClientReadableStream<protos_auth_pb.SignupResponse>;
 
-  signin(
-    request: protos_auth_pb.SigninRequest,
-    metadata: grpcWeb.Metadata | null,
-    callback?: (err: grpcWeb.RpcError,
-               response: protos_auth_pb.SigninResponse) => void) {
-    if (callback !== undefined) {
-      return this.client_.rpcCall(
-        this.hostname_ +
-          '/auth.Authentication/Signin',
-        request,
-        metadata || {},
-        this.methodDescriptorSignin,
-        callback);
+    signup(
+        request: protos_auth_pb.SignupRequest,
+        metadata: grpcWeb.Metadata | null,
+        callback?: (
+            err: grpcWeb.RpcError,
+            response: protos_auth_pb.SignupResponse
+        ) => void
+    ) {
+        if (callback !== undefined) {
+            return this.client_.rpcCall(
+                this.hostname_ + '/auth.Authentication/Signup',
+                request,
+                metadata || {},
+                this.methodDescriptorSignup,
+                callback
+            );
+        }
+        return this.client_.unaryCall(
+            this.hostname_ + '/auth.Authentication/Signup',
+            request,
+            metadata || {},
+            this.methodDescriptorSignup
+        );
     }
-    return this.client_.unaryCall(
-    this.hostname_ +
-      '/auth.Authentication/Signin',
-    request,
-    metadata || {},
-    this.methodDescriptorSignin);
-  }
 
+    methodDescriptorSignin = new grpcWeb.MethodDescriptor(
+        '/auth.Authentication/Signin',
+        grpcWeb.MethodType.UNARY,
+        protos_auth_pb.SigninRequest,
+        protos_auth_pb.SigninResponse,
+        (request: protos_auth_pb.SigninRequest) => {
+            return request.serializeBinary();
+        },
+        protos_auth_pb.SigninResponse.deserializeBinary
+    );
+
+    signin(
+        request: protos_auth_pb.SigninRequest,
+        metadata: grpcWeb.Metadata | null
+    ): Promise<protos_auth_pb.SigninResponse>;
+
+    signin(
+        request: protos_auth_pb.SigninRequest,
+        metadata: grpcWeb.Metadata | null,
+        callback: (
+            err: grpcWeb.RpcError,
+            response: protos_auth_pb.SigninResponse
+        ) => void
+    ): grpcWeb.ClientReadableStream<protos_auth_pb.SigninResponse>;
+
+    signin(
+        request: protos_auth_pb.SigninRequest,
+        metadata: grpcWeb.Metadata | null,
+        callback?: (
+            err: grpcWeb.RpcError,
+            response: protos_auth_pb.SigninResponse
+        ) => void
+    ) {
+        if (callback !== undefined) {
+            return this.client_.rpcCall(
+                this.hostname_ + '/auth.Authentication/Signin',
+                request,
+                metadata || {},
+                this.methodDescriptorSignin,
+                callback
+            );
+        }
+        return this.client_.unaryCall(
+            this.hostname_ + '/auth.Authentication/Signin',
+            request,
+            metadata || {},
+            this.methodDescriptorSignin
+        );
+    }
 }
-
